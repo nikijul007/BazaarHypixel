@@ -13,7 +13,7 @@ public class BazaarMain {
 		String key = null;
 		
 		try {
-		File file = new File("ressources/ApiKey.dat");
+		File file = new File("src/com/bazaarHypixel/ressources/ApiKey.dat");
 		Scanner reader = new Scanner(file);
 		
 		while(reader.hasNextLine()) {
