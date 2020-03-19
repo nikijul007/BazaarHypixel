@@ -1,3 +1,4 @@
+package com.bazaarHypixel;
 
 public class BazaarMain {
 	public static void main(String[] args) {
