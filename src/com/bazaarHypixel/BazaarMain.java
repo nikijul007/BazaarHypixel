@@ -4,29 +4,40 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+import com.bazaarHypixel.code.ActivateItems;
+
 public class BazaarMain {
-	public static void main(String[] args) {
-		String s = getkey();
-	}
 	
+	static String key;
+	public static final String RESSOURCES_PATH = "src/com/bazaarHypixel/ressources/";
+	
+	public static void main(String[] args) {
+		ActivateItems items = new ActivateItems();
+		items.addItem("melon");
+		items.addItem("enchanted_spruce_log");
+		items.addItem("FRITZ", 1);
+		items.saveItems();
+		key = getkey();
+	}
+
 	public static String getkey() {
-		String key = null;
-		
+		String keyTemp = null;
+
 		try {
-		File file = new File("src/com/bazaarHypixel/ressources/ApiKey.dat");
-		Scanner reader = new Scanner(file);
-		
-		while(reader.hasNextLine()) {
-			key = reader.nextLine();
-			System.out.println(key);
-		}
-		reader.close();
-		} catch(FileNotFoundException e) {
+			File file = new File(RESSOURCES_PATH+"ApiKey.dat");
+			Scanner reader = new Scanner(file);
+
+			while (reader.hasNextLine()) {
+				keyTemp = reader.nextLine();
+				System.out.println(keyTemp);
+			}
+			reader.close();
+		} catch (FileNotFoundException e) {
 			System.out.println("File not found!");
 		}
-		
-		
-		return key;
+
+		return keyTemp;
+
 	}
 
 }
