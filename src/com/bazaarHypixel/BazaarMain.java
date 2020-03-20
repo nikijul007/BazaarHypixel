@@ -19,9 +19,11 @@ public class BazaarMain {
 			items.addItem(item.name());
 		}
 		
-		items.saveItems();
-		
 		key = getkey();
+		
+		for(String item : items.loadItems()) {
+			System.out.println(item);
+		}
 	}
 
 	public static String getkey() {
