@@ -33,11 +33,24 @@ public class ActivateItems {
 	}
 	
 	public void addItem(String name) {
-		selectedItems.add(name.toUpperCase());
+		name = name.toUpperCase();
+		if(!selectedItems.contains(name)) {
+		selectedItems.add(name);
+		} else {
+			System.out.println(name + " ist bereits vorhanden!");
+		}
 	}
 	
 	public void addItem(String name, int position) {
-		selectedItems.add(position-1, name.toUpperCase());
+		name = name.toUpperCase();
+		
+		if(!selectedItems.contains(name)) {
+		selectedItems.add(position-1, name);
+		} else {
+			System.out.println(name + " wird verschoben!");
+			selectedItems.remove(name);
+			selectedItems.add(position - 1, name);
+		}
 	}
 	
 	public ArrayList<String> getSelectedItems() {

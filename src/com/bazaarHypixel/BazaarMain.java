@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 import com.bazaarHypixel.code.ActivateItems;
+import com.bazaarHypixel.code.AllItems;
 
 public class BazaarMain {
 	
@@ -13,10 +14,13 @@ public class BazaarMain {
 	
 	public static void main(String[] args) {
 		ActivateItems items = new ActivateItems();
-		items.addItem("melon");
-		items.addItem("enchanted_spruce_log");
-		items.addItem("FRITZ", 1);
+		
+		for(AllItems item : AllItems.values()) {
+			items.addItem(item.name());
+		}
+		
 		items.saveItems();
+		
 		key = getkey();
 	}
 
